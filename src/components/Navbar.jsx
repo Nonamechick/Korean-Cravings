@@ -5,7 +5,7 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 const Navbar = () => {
  
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-200 shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -22,7 +22,9 @@ const Navbar = () => {
     </div>
   </div>
   <div className="navbar-center">
-    <a className="btn btn-ghost text-xl">Store</a>
+  <a className="btn btn-ghost text-xl">
+  <img src="https://i.postimg.cc/fb7ZSLxN/cube-3d.png" alt="Kotakdidas Logo" className="h-8 lg:h-10" />
+  </a>
   </div>
   <div className="navbar-end">
     <button className="btn btn-ghost btn-circle">
