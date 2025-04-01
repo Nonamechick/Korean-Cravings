@@ -16,8 +16,8 @@ const Layout = () => {
         <Hero />
         <Menu />
         <Cards />
-        <Service />
         <About />
+        <Service />
         <Footer />
       </div>
   )
