@@ -1,40 +1,38 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 
 const Cards = () => {
   const [products, setProducts] = useState([]);
-  const SHEET_ID = '18xcXDm0hLSW6_h4Ksa4DbYxdVtF47IrF_gsOBSj3ngc'; // e.g., from URL: https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit https://docs.google.com/spreadsheets/d/18xcXDm0hLSW6_h4Ksa4DbYxdVtF47IrF_gsOBSj3ngc/edit?usp=sharing
-  const API_KEY = 'AIzaSyC9VZIZ2hpS13gNOaIZTvhcgP5CQSGn4NY';
+  const [loading, setLoading] = useState(true);
+  const SHEET_ID = import.meta.env.VITE_SHEET_ID || ''; // Use .env file, e.g., VITE_SHEET_ID=your_sheet_id
+  const API_KEY = import.meta.env.VITE_API_KEY || '';   // Use .env file, e.g., VITE_API_KEY=your_api_key
   const RANGE = 'Sheet1!A2:E'; // Adjust range based on your sheet
-
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
           `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`
         );
-        const rows = response.data.values;
-        if (!rows || rows.length === 0) {
-          setProducts([]);
-          return;
-        }
+        const rows = response.data.values || [];
         const productData = rows.map(row => ({
-          category: row[0],    // Column A
-          name: row[1],        // Column B
-          description: row[2], // Column C
-          imageUrl: row[3],    // Column D
-          price: row[4],       // Column E
+          category: row[0] || 'Uncategorized',     // Column A
+          name: row[1] || 'Unnamed Product',       // Column B
+          description: row[2] || 'No description', // Column C
+          imageUrl: row[3] || 'https://via.placeholder.com/150', // Column D, fallback image
+          price: row[4] || 'N/A',                  // Column E
         }));
         setProducts(productData);
       } catch (error) {
         console.error('Error fetching data:', error);
+        setProducts([]);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
-  }, []);
+  }, []); // Empty deps since SHEET_ID, API_KEY, RANGE are static
 
   // Define main categories and their sub-categories
   const categoryMapping = {
@@ -59,8 +57,18 @@ const Cards = () => {
     return acc;
   }, {});
 
+  // Loading state UI
+  if (loading) {
+    return (
+      <div className="text-center p-4">
+        <span className="loading loading-spinner loading-lg"></span>
+        <p>Loading products...</p>
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div className="container mx-auto p-4">
       {Object.keys(groupedByMainCategory).map((mainCategory, index) => (
         <details key={index} className="w-full mb-4">
           <summary className="card-title p-4 cursor-pointer text-center bg-base-200 text-xl font-bold">
@@ -70,15 +78,16 @@ const Cards = () => {
             {Object.keys(groupedByMainCategory[mainCategory]).map((subCategory, subIndex) => (
               <details key={subIndex} className="w-full mb-2">
                 <summary className="card-title p-3 cursor-pointer text-center bg-base-300">
-                  {subCategory === 'Sneakers' ? '🔴' : '🟢'} Show {subCategory}
+                  {subCategory === 'Sneakers' ? '🔴' : '🟢'} {subCategory}
                 </summary>
-                <div className="flex flex-wrap gap-6 justify-center p-4 bg-base-300">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 bg-base-300">
                   {groupedByMainCategory[mainCategory][subCategory].map((product, idx) => (
-                    <div key={idx} className="card bg-base-300 w-96 shadow-sm">
+                    <div key={idx} className="card bg-base-300 w-full shadow-sm">
                       <figure>
                         <img
                           src={product.imageUrl}
                           alt={product.name}
+                          className="h-48 w-full object-cover"
                         />
                       </figure>
                       <div className="card-body">
@@ -98,7 +107,7 @@ const Cards = () => {
         </details>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;
