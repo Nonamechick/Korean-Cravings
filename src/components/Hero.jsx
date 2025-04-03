@@ -15,20 +15,20 @@ const Hero = () => {
   
   <div className="relative z-10 p-8 lg:p-16 text-white max-w-lg">
     <h1 className="mb-4 text-4xl lg:text-6xl font-extrabold tracking-wide uppercase">
-      Festival 'Fits
+    Korean Cravings
     </h1>
     <p className="mb-6 text-sm lg:text-lg tracking-wide font-light">
-      Where iconic sneakers meet breezy layers, your spring looks are mapped out.
+    Welcome to Café , where the vibrant flavors of Korea come alive! Savor authentic dishes like spicy kimchi jjigae, sizzling bibimbap, and crispy Korean fried chicken, all crafted with fresh ingredients and a passion for tradition. Pair your meal with a refreshing glass of soju or sweet rice tea, and let your taste buds travel to Seoul. Join us for a cozy, delicious experience—Kamsahamnida!
     </p>
     <div className="flex gap-4">
       <button className="px-6 py-3 text-sm lg:text-base font-medium uppercase bg-white text-black rounded-full hover:bg-gray-300 transition">
-        Shop Men →
+        Dry Dishes  →
       </button>
       <button className="px-6 py-3 text-sm lg:text-base font-medium uppercase bg-white text-black rounded-full hover:bg-gray-300 transition">
-        Shop Women →
+        Soups →
       </button>
       <button className="px-6 py-3 text-sm lg:text-base font-medium uppercase bg-white text-black rounded-full hover:bg-gray-300 transition">
-        Shop Kids →
+        Drinks →
       </button>
     </div>
   </div>

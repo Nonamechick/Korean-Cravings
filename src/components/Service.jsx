@@ -6,8 +6,8 @@ const Service = () => {
     <div className="max-w-4xl text-center">
       <h1 className="text-3xl font-bold text-white mb-6">Our <span className="text-primary">Services</span></h1>
       <p className="text-base mb-6">
-        At <span className="text-primary font-semibold">2x2 Store</span>, we provide top-notch services to make your 
-        sneaker shopping experience smooth and enjoyable.
+        At <span className="text-primary font-semibold">Korean Cravings</span>, we provide top-notch services to make your 
+         experience smooth and enjoyable.
       </p>
 
       {/* Services Grid */}
@@ -16,7 +16,7 @@ const Service = () => {
         <div className="bg-gray-800 p-6 rounded-lg shadow-md">
           <h2 className="text-lg font-semibold text-white mb-2">Fast Delivery</h2>
           <p className="text-gray-400 text-sm">
-            Get your favorite sneakers delivered quickly and securely.
+            Get your food delivered quickly and securely.
           </p>
         </div>
 
