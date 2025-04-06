@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 # privacy
 .env
-.env*
+.env.*
