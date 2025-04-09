@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Cards = () => {
+const Cards = ( { searchTerm } ) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const SHEET_ID = import.meta.env.VITE_SHEET_ID || ''; // Use .env file, e.g., VITE_SHEET_ID=your_sheet_id
   const API_KEY = import.meta.env.VITE_API_KEY || '';   // Use .env file, e.g., VITE_API_KEY=your_api_key
   const RANGE = 'Sheet1!A2:E'; // Adjust range based on your sheet
+
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +47,7 @@ const Cards = () => {
   };
 
   // Group products by main category and sub-category
-  const groupedByMainCategory = products.reduce((acc, product) => {
+  const groupedByMainCategory = filteredProducts.reduce((acc, product) => {
     const mainCategory = Object.keys(categoryMapping).find(main =>
       categoryMapping[main].includes(product.category)
     ) || 'Other'; // Fallback for unmapped categories

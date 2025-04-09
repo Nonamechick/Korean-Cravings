@@ -2,10 +2,10 @@ import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, searchTerm, setSearchTerm }) => {
   return (
     <div className="min-h-screen bg-neutral">
-      <Navbar />
+      <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       {children}
       <Footer />
     </div>
