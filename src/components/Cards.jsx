@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Cards = ( { searchTerm } ) => {
+const Cards = ( { searchTerm, addToCart  } ) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const SHEET_ID = import.meta.env.VITE_SHEET_ID || ''; // Use .env file, e.g., VITE_SHEET_ID=your_sheet_id
@@ -99,7 +99,9 @@ const Cards = ( { searchTerm } ) => {
                         <p>{product.description}</p>
                         <p className="text-lg font-semibold text-primary">{product.price}</p>
                         <div className="card-actions justify-end">
-                          <button className="btn btn-primary">Buy Now</button>
+                          <button className="btn btn-primary"
+                          onClick={() => addToCart(product)}
+                          >Buy Now</button>
                         </div>
                       </div>
                     </div>
