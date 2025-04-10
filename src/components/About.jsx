@@ -7,15 +7,14 @@ const About = () => {
         <h1 className="text-3xl font-bold text-white mb-6">About <span className="text-primary">Korean Cravings</span></h1>
         <p className="text-base mb-4">
           Welcome to <span className="text-primary font-semibold">Korean Cravings</span>where the vibrant flavors of Korea come alive! Savor authentic dishes like spicy kimchi jjigae, sizzling bibimbap, and crispy 
-          Korean fried chicken, all crafted with fresh ingredients and a passion for tradition. Pair your meal with a refreshing glass of soju or sweet rice tea, and let your taste buds travel to Seoul. 
-          Join us for a cozy, delicious experience—Kamsahamnida!
+          Korean fried chicken, all crafted with fresh ingredients and a passion for tradition. 
         </p>
 
         <div className="flex justify-center gap-8 mt-6">
           <div className="bg-gray-800 p-6 rounded-xl shadow-lg max-w-sm">
             <h2 className="text-lg font-semibold text-white mb-2">Premium Quality</h2>
             <p className="text-gray-400">
-              Some text hereherrherheheherherheh
+              Some text 
             </p>
           </div>
 
