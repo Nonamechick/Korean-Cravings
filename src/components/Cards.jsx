@@ -40,7 +40,7 @@ const Cards = ( { searchTerm, addToCart  } ) => {
 
   // Define main categories and their sub-categories
   const categoryMapping = {
-    Dry_Dishes: ['КИМПАБ / 김밥 🍣', 'ГОРЯЧИЕ БЛЮДА 🍽️', '', 'ФРАЙ ЧИККИН / 치킨 🍗', 'ЧИККИНКАС, БИФКАС / 치킨까스, 비프까스 🍗', 'Хотдог / 핫도그', 'СЭНДВИЧИ / 샌드위치 🥪', 'ГАМБУРГЕРЫ / 햄버거'],
+    Mains: ['КИМПАБ / 김밥 🍣', 'ГОРЯЧИЕ БЛЮДА 🍽️', '', 'ФРАЙ ЧИККИН / 치킨 🍗', 'ЧИККИНКАС, БИФКАС / 치킨까스, 비프까스 🍗', 'Хотдог / 핫도그', 'СЭНДВИЧИ / 샌드위치 🥪', 'ГАМБУРГЕРЫ / 햄버거'],
     Soups: ['РАМЁН 라면 🍜', 'ВОК и ПАСТЫ 🍙🍣🍱🥢', 'КУКСУ / 국수 🍜', 'Корейские супы 🍲'],
     Drinks: ['ЧАЙ 차 (티포트 1L) 🍵', 'КОФЕ / 커피 ☕', 'НАПИТКИ в СТАКАНЕ 0,5л. / 음료 🍹', 'НАПИТКИ БУТИЛИРОВАННЫЕ / 음료수 🥤'],
     Sauces: ['СОУСЫ 🌶️'],
@@ -76,7 +76,7 @@ const Cards = ( { searchTerm, addToCart  } ) => {
       {Object.keys(groupedByMainCategory).map((mainCategory, index) => (
         <details key={index} className="w-full mb-4">
           <summary className="card-title p-4 cursor-pointer text-center bg-base-200 text-xl font-bold">
-            {mainCategory === 'Dry_Dishes' ? '🍔' : mainCategory === 'Soups' ? '🍜' : mainCategory === 'Drinks' ? '🥤' : '🫙'} {mainCategory}
+            {mainCategory === 'Mains' ? '🍔' : mainCategory === 'Soups' ? '🍜' : mainCategory === 'Drinks' ? '🥤' : '🫙'} {mainCategory}
           </summary>
           <div className="p-4 bg-base-200">
             {Object.keys(groupedByMainCategory[mainCategory]).map((subCategory, subIndex) => (
