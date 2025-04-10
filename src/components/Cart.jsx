@@ -43,7 +43,7 @@ const Cart = ({ cartItems }) => {
           <div className="w-full max-w-xs mx-auto">
             {/* Placeholder for QR Code */}
             <img
-              src="https://i.postimg.cc/nr5r9TMC/Screenshot-2025-04-09-220030.png"
+              src="https://i.postimg.cc/q7NYDcLG/mon.jpg"
               alt="QR Code"
               className="w-full h-auto rounded-lg"
             />
