@@ -18,7 +18,7 @@ const Hero = () => {
     Korean Cravings
     </h1>
     <p className="mb-6 text-sm lg:text-lg tracking-wide font-light">
-    Welcome to Café , where the vibrant flavors of Korea come alive! Savor authentic dishes like spicy kimchi jjigae, sizzling bibimbap, and crispy Korean fried chicken, all crafted with fresh ingredients and a passion for tradition. Pair your meal with a refreshing glass of soju or sweet rice tea, and let your taste buds travel to Seoul. Join us for a cozy, delicious experience—Kamsahamnida!
+    Welcome to Cafe , where the vibrant flavors of Korea come alive! Savor authentic dishes like spicy kimchi jjigae, sizzling bibimbap, and crispy Korean fried chicken, all crafted with fresh ingredients and a passion for tradition. 
     </p>
     <div className="flex gap-4">
       <button className="px-6 py-3 text-sm lg:text-base font-medium uppercase bg-white text-black rounded-full hover:bg-gray-300 transition">
