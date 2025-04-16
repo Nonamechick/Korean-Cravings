@@ -22,11 +22,7 @@ const Navbar = ({ searchTerm, setSearchTerm, cartCount }) => {
           </ul>
         </div>
       </div>
-      <div className="navbar-center">
-        <NavLink to="/" className="btn btn-ghost text-xl">
-          <img src="https://i.postimg.cc/fb7ZSLxN/cube-3d.png" alt=" Logo" className="h-8 lg:h-10" />
-        </NavLink>
-      </div>
+
       <div className="navbar-end">
         <input
           type="text"
@@ -35,11 +31,6 @@ const Navbar = ({ searchTerm, setSearchTerm, cartCount }) => {
           onChange={e => setSearchTerm(e.target.value)}
           className="input input-bordered w-full max-w-xs"
         />
-        <button className="btn btn-ghost btn-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </button>
         <NavLink to='/cart' className="btn btn-ghost text-xl">
         <button className="btn btn-ghost btn-circle">
           <div className="indicator">
